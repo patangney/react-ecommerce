@@ -1,14 +1,14 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import { ThemeProvider } from '@mui/material/styles';
 import DefaultTheme from './styles/theme/defaultTheme';
-import './App.scss';
+import HomePage from './pages/homepage/homepage.component';
+import './styles/main.scss';
 
 function App() {
   return (
     <ThemeProvider theme={DefaultTheme}>
       <div className='App'>
-        <Button variant='outlined'>Hello World</Button>
+        <HomePage />
       </div>
     </ThemeProvider>
   );

@@ -9,6 +9,6 @@ const theme = createTheme({
   },
 });
 
-const DefaultTheme = (theme);
+const DefaultTheme = theme;
 
 export default DefaultTheme;
