@@ -3,13 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import DefaultTheme from './styles/theme/defaultTheme';
 import HomePage from './pages/homepage/homepage.component';
+import ShopPage from 'pages/shop/shop.component';
 import './styles/main.scss';
 
-const HatsPage = () => (
-  <div>
-    <h1>Hats Page</h1>
-  </div>
-);
+// const HatsPage = () => (
+//   <div>
+//     <h1>Hats Page</h1>
+//   </div>
+// );
 
 // <div className='App'>
 // <HomePage />
@@ -21,7 +22,7 @@ function App() {
       <div className='App'>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route path='/hats' component={HatsPage} />
+          <Route path='/shop' component={ShopPage} />
         </Switch>
       </div>
     </ThemeProvider>
