@@ -4,21 +4,13 @@ import { ThemeProvider } from '@mui/material/styles';
 import DefaultTheme from './styles/theme/defaultTheme';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from 'pages/shop/shop.component';
+import Header from 'components/header/header.component';
 import './styles/main.scss';
-
-// const HatsPage = () => (
-//   <div>
-//     <h1>Hats Page</h1>
-//   </div>
-// );
-
-// <div className='App'>
-// <HomePage />
-// </div>
 
 function App() {
   return (
     <ThemeProvider theme={DefaultTheme}>
+    <Header />
       <div className='App'>
         <Switch>
           <Route exact path='/' component={HomePage} />
