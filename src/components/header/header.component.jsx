@@ -8,7 +8,7 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './_header.style.scss';
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
@@ -31,11 +31,23 @@ const Header = ({ currentUser }) => (
       )}
       <CartIcon />
     </div>
-
-    <CartDropdown />
+        {
+          hidden ? null : <CartDropdown />
+        }
+    
   </div>
 );
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+
+/**
+ *
+ * I want the value from user from currentUser which is being destructured from the state
+ * we also need the hidden value from the cart (true or false boolean)
+ *
+ * */
+
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  // currentUser: state.user.currentUser, <= instead of this we can just write as below
+  currentUser,
+  hidden
 });
 export default connect(mapStateToProps)(Header);
