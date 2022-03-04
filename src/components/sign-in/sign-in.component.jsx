@@ -50,7 +50,7 @@ class SignIn extends React.Component {
             value={this.state.password}
             handleChange={this.handleChange}
             required
-            autoComplete='current-password'
+            
           />
 
           <div className='buttons'>
