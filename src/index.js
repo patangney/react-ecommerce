@@ -7,8 +7,10 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+import store from './redux/store/store';
+
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <React.StrictMode>
       <BrowserRouter>
         <App />
