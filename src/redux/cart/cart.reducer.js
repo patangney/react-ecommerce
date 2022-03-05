@@ -3,8 +3,8 @@
  * Whatever the boolean value is set as, convert to oposite
  * cartItems array is setup as empty for inital state
  */
-
 import CartActionTypes from './cart.types';
+import {addItemToCart} from './cart.utils';
 
 const INITIAL_STATE = {
   hidden: true,
@@ -21,7 +21,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.ADD_ITEM: 
     return {
       ...state,
-      cartItems: [...state.cartItems, action.payload] //spread in cartitems from array
+      cartItems: addItemToCart(state.cartItems, action.payload) //spread in cartitems from array
     }
     default: 
       return state;
