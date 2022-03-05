@@ -1,6 +1,7 @@
 /**
  * We want to hide the dropdown - this will be set to inital state as true
  * Whatever the boolean value is set as, convert to oposite
+ * cartItems array is setup as empty for inital state
  */
 
 import CartActionTypes from './cart.types';
@@ -16,8 +17,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         hidden: !state.hidden,
-      };
-    default:
+      };    
+    case CartActionTypes.ADD_ITEM: 
+    return {
+      ...state,
+      cartItems: [...state.cartItems, action.payload] //spread in cartitems from array
+    }
+    default: 
       return state;
   }
 };
