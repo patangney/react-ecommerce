@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
  * mapStateToProps() - Selector
  * Gets the whole state object, pulls off a slice of the state and 
  *  reduce over the items to get a new value
- * 
+ * memoize and not re-render a component if the state value does not change by using the reselect library
  */
 const mapStateToProps = ({ cart: { cartItems } }) => ({
   itemCount: cartItems.reduce((accumlatedQuantity, cartItem) => accumlatedQuantity + cartItem.quantity, 0)
