@@ -9,7 +9,7 @@ import './cart-dropdown.styles.scss';
 
 
 
-const CartDropdown = ({ cartItems }) => (
+const CartDropdown = ({ cartItems, history }) => (
   <div className='cart-dropdown'>
     <div className='cart-items'>
       {cartItems.length ? (
@@ -20,7 +20,7 @@ const CartDropdown = ({ cartItems }) => (
         <span className='empty-message'>Your cart is empty</span>
       )}
     </div>
-    <CustomButton >Go to Checkout</CustomButton>
+    <CustomButton onClick={() => history.push('/checkout')} >Go to Checkout</CustomButton>
   </div>
 );
 const mapStateToProps = createStructuredSelector({
