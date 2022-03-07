@@ -4,11 +4,11 @@
  * cartItems array is setup as empty for inital state
  */
 import CartActionTypes from './cart.types';
-import {addItemToCart} from './cart.utils';
+import { addItemToCart } from './cart.utils';
 
 const INITIAL_STATE = {
   hidden: true,
-  cartItems: []
+  cartItems: [],
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -17,13 +17,21 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         hidden: !state.hidden,
-      };    
-    case CartActionTypes.ADD_ITEM: 
-    return {
-      ...state,
-      cartItems: addItemToCart(state.cartItems, action.payload) //spread in cartitems from array
-    }
-    default: 
+      };
+    case CartActionTypes.ADD_ITEM:
+      return {
+        ...state,
+        cartItems: addItemToCart(state.cartItems, action.payload), //spread in cartitems from array
+      };
+    case CartActionTypes.CLEAR_ITEM_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem.id !== action.payload.id
+        ),
+      };
+
+    default:
       return state;
   }
 };
