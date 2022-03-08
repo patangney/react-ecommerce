@@ -8,7 +8,7 @@
  */
 
 import { createStore, applyMiddleware } from 'redux';
-import { persistStore } from 'redux-persist/es/persistStore';
+import persistStore from 'redux-persist/lib/persistStore';
 import logger from 'redux-logger';
 import rootReducer from 'redux/root-reducer';
 
@@ -19,4 +19,4 @@ export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 // this will be essentially a persisted version of the store
 export const persistor = persistStore(store);
 
-export default store;
+export default {store, persistor};
