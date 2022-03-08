@@ -1,10 +1,3 @@
-/**
- *
- * @param {Check existing items in cart (array)} cartItems
- * @param {If no item then add to (array)} cartItemToAdd
- * don't return item if it hasn't changed
- */
-
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === cartItemToAdd.id
@@ -20,5 +13,27 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
 
+/**
+ * Check if existing cart item that are already in cartItems
+ * if the existing quanity is 1 - remove it
+ * otherwise, decrease the quantity and keep everything in the array
+ *
+ */
 
-export default addItemToCart;
+ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+  const existingCartItem = cartItems.find(
+    cartItem => cartItem.id === cartItemToRemove.id
+  );
+
+  if (existingCartItem.quantity === 1) {
+    return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
+  }
+
+  return cartItems.map(cartItem =>
+    cartItem.id === cartItemToRemove.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem
+  );
+};
+
+
